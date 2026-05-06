@@ -272,7 +272,10 @@ tailwind.config = {
 <div id="toast" class="toast">Message</div>
 
 <script>
-const API_BASE = ''; 
+// Dynamically point to localhost:3001 during local dev, or use same-origin for production
+const API_BASE = (window.location.hostname === 'localhost' || window.location.hostname === '127.0.0.1' || window.location.protocol === 'file:') && window.location.port !== '3001'
+  ? 'http://localhost:3001'
+  : ''; 
 let currentData = null;
 let historyData = JSON.parse(localStorage.getItem('tiksave_history') || '[]');
 const TIKTOK_REGEX = /^https?:\/\/(www\.|vm\.|vt\.|m\.)?tiktok\.com\/.+/i;
