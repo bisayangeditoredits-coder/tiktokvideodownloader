@@ -1,0 +1,13 @@
+name: Deploy TikSave Pro
+on:
+  push:
+    branches:
+      - main
+
+jobs:
+  deploy:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v3
+      - name: Ready to Deploy
+        run: echo "Repository updated. Auto-deployment via Render and Vercel GitHub integrations should trigger automatically."

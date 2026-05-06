@@ -1,0 +1,11 @@
+services:
+  - type: web
+    name: tiksave-pro-backend
+    env: node
+    buildCommand: cd backend && npm install
+    startCommand: cd backend && npm start
+    envVars:
+      - key: PORT
+        value: 3001
+      - key: FRONTEND_URL
+        value: https://your-vercel-frontend-url.vercel.app
