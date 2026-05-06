@@ -1,4 +1,4 @@
 User-agent: *
 Allow: /
 
-Sitemap: https://tiktokvideodownloader-six.vercel.app/sitemap.xml
+Sitemap: https://tiktokwatermarkremover.com/sitemap.xml

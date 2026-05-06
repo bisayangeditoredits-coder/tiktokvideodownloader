@@ -1,4 +1,4 @@
-# TikSave Pro
+# TikTok Watermark Remover
 
 ## Features
 - Download TikTok videos without watermark

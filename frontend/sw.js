@@ -1,4 +1,4 @@
-const CACHE_NAME = 'tiksave-v3';
+const CACHE_NAME = 'tiktokwatermarkremover-v3';
 const ASSETS = [
   '/',
   '/?source=pwa',

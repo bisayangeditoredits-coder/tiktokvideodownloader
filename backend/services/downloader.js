@@ -8,7 +8,7 @@ const axios = require('axios');
 const UA = 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 Chrome/120 Safari/537.36';
 
 async function proxyDownload(req, res) {
-  const { url, filename = 'tiksave-video.mp4', type = 'video/mp4' } = req.query;
+  const { url, filename = 'tiktokwatermarkremover-video.mp4', type = 'video/mp4' } = req.query;
 
   if (!url) return res.status(400).json({ success: false, error: 'Missing url parameter' });
 

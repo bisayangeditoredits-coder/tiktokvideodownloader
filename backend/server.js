@@ -1,5 +1,5 @@
 /**
- * TikSave Pro — Backend Entry Point
+ * TikTok Watermark Remover — Backend Entry Point
  */
 'use strict';
 
@@ -56,7 +56,7 @@ app.use((err, _req, res, _next) => {
 
 // ── Start ─────────────────────────────────────────────────────
 app.listen(PORT, () => {
-  console.log(`✅ TikSave Pro running  → http://localhost:${PORT}`);
+  console.log(`✅ TikTok Watermark Remover running  → http://localhost:${PORT}`);
   console.log(`   Health endpoint     → http://localhost:${PORT}/api/health`);
 });
 

@@ -1,6 +1,6 @@
 {
   "name": "TikTok Watermark Removal",
-  "short_name": "TikSave",
+  "short_name": "TikTok Watermark Remover",
   "description": "Free TikTok watermark remover. Download TikTok videos without watermark.",
   "start_url": "/?source=pwa",
   "display": "standalone",

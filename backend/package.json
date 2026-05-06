@@ -1,7 +1,7 @@
 {
-  "name": "tiksave-pro-backend",
+  "name": "tiktokwatermarkremover-backend",
   "version": "2.0.0",
-  "description": "TikSave Pro — TikTok video downloader API",
+  "description": "TikTok Watermark Remover — TikTok video downloader API",
   "main": "server.js",
   "scripts": {
     "start": "node server.js",
