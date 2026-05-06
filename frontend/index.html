@@ -426,20 +426,20 @@ tailwind.config = {
     </div>
     <div>
       <h3 class="font-bold text-lg leading-tight">TikTok Watermark Remover</h3>
-      <p class="text-xs text-tik-muted">tiktokvideodownloader...</p>
+      <p class="text-xs text-tik-muted">tiktokwatermarkremover.com</p>
     </div>
   </div>
-  <h4 class="font-bold mb-2">📲 Add to Home Screen</h4>
+  <h4 class="font-bold mb-2">📲 Install App</h4>
   <p class="text-sm text-tik-muted mb-6">Get instant access without opening your browser every time. Works offline for recent downloads.</p>
   <div class="flex gap-2">
     <button onclick="dismissPwaSheet()" class="btn btn-ghost px-4">NOT NOW</button>
-    <button onclick="installPwa()" class="btn btn-primary flex-1">ADD TO HOME SCREEN</button>
+    <button onclick="installPwa()" class="btn btn-primary flex-1">INSTALL APP</button>
   </div>
 </div>
 
 <div id="iosSheet" class="bottom-sheet p-5">
   <h4 class="font-bold text-lg mb-4">📲 Install TikTok Watermark Remover</h4>
-  <p class="text-sm text-tik-muted mb-4">To add to your home screen:</p>
+  <p class="text-sm text-tik-muted mb-4">To install on your iPhone:</p>
   <ol class="text-sm flex flex-col gap-3 mb-6">
     <li>1. Tap the Share button at the bottom of Safari</li>
     <li>2. Scroll down and tap "Add to Home Screen"</li>
@@ -473,18 +473,19 @@ const pwaInstalled = localStorage.getItem('pwa_installed');
 window.addEventListener('beforeinstallprompt', (e) => {
   e.preventDefault(); deferredPrompt = e;
   el('pwaInstallWrap').style.display = 'flex';
+  setTimeout(checkPwaPrompt, 1500); // Trigger check immediately when ready
 });
 
+el('pwaInstallBtn')?.addEventListener('click', installPwa);
+
 function checkPwaPrompt() {
-  if (!isMobile || pwaInstalled || pwaDeclined || pwaDismisses >= 3 || !hasDownloaded()) return;
-  // Trigger after 1st download, or every 3rd download if dismissed previously
+  if (!isMobile || pwaInstalled || pwaDeclined || pwaDismisses >= 3) return;
+  // Trigger if it's their first time seeing it, or every 3rd download if dismissed previously
   const dlCount = parseInt(localStorage.getItem('tiktokwatermarkremover_downloads') || '0', 10);
-  if (dlCount === 1 || (dlCount > 1 && dlCount % 3 === 0)) {
-    setTimeout(() => {
-      el('backdrop').classList.add('open');
-      if (isIOS) el('iosSheet').classList.add('open');
-      else el('pwaSheet').classList.add('open');
-    }, 1500);
+  if (pwaDismisses === 0 || (dlCount > 1 && dlCount % 3 === 0)) {
+    el('backdrop').classList.add('open');
+    if (isIOS) el('iosSheet').classList.add('open');
+    else el('pwaSheet').classList.add('open');
   }
 }
 
